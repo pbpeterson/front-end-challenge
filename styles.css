@@ -1,19 +1,41 @@
 @import url("https://rsms.me/inter/inter.css");
 
-html {
-  font-family: "Inter", sans-serif;
+:root {
+  --black: #071723;
+  --blue: #2f3676;
+  --dark-blue: #191847;
+  --error-background: #f59393;
+  --error-border: #f33232;
+  --gray-disabled: #c5cfd6;
+  --gray: #555;
+  --light-blue: #dde3e9;
+  --white: #fff;
+  --success: #00c57c;
 }
 
-@supports (font-variation-settings: normal) {
-  html {
-    font-family: "Inter var", sans-serif;
-  }
-}
-
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  font-family: "Inter", sans-serif;
+  font-size: 62.5%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 body {
@@ -21,100 +43,256 @@ body {
   color: #071723;
 }
 
-.box {
-  background-color: #f2f2f2;
-  border-radius: 8px;
-  box-shadow: 10px 22px 34px 0 rgba(0, 0, 0, 0.5);
-  margin: 20px auto;
-  overflow: hidden;
-  width: 550px;
-}
-
-.space {
-  margin-bottom: 16px;
-}
-
-.space-md {
-  margin-bottom: 32px;
-}
-
-.label {
-  font-size: 18px;
+legend {
+  color: var(--black);
+  font-size: 1.8rem;
   font-weight: 600;
+  margin-bottom: 1.5rem;
 }
 
-.header {
-  background: url(images/header.png) center right no-repeat;
-  background-size: cover;
-  height: 187px;
-  padding: 23px 36px;
+textarea {
+  background: var(--light-blue);
+  border-radius: 0.4rem;
+  border: 0.1rem solid var(--blue);
+  font-family: "Inter", sans-serif;
+  font-size: 1.4rem;
+  height: 14.1rem;
+  line-height: 2.4rem;
+  padding: 1.6rem;
+  resize: none;
   width: 100%;
 }
 
-.header .title {
-  color: #fff;
-  font-size: 23px;
+button {
+  border: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.c-stickers-quantity {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.c-stickers-quantity__button {
+  align-items: center;
+  display: flex;
+  height: 4.2rem;
+  justify-content: center;
+  width: 4.2rem;
+}
+
+.c-stickers-quantity__button:hover svg {
+  fill: var(--dark-blue);
+  pointer-events: none;
+}
+
+.c-stickers-quantity__button svg {
+  fill: var(--blue);
+  height: 100%;
+  transition: fill 0.3s;
+  width: 100%;
+}
+
+.c-stickers-quantity__button:disabled svg {
+  fill: var(--gray-disabled);
+}
+
+.c-stickers-quantity__input {
+  background: var(--light-blue);
+  border-radius: 0.4rem;
+  border: 0.1rem solid var(--blue);
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  width: 6.4rem;
+}
+
+.c-stickers-quantity__input:focus {
+  outline: none;
+}
+
+.c-stickers-quantity__input:invalid {
+  background: var(--error-background);
+  border: 0.1rem solid var(--error-border);
+}
+
+.c-description__title {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 3.2rem 0 1.5rem 0;
+}
+
+.box {
+  background-color: #f2f2f2;
+  border-radius: 0.8rem;
+  box-shadow: 1rem 2.2rem 3.4rem 0 rgba(0, 0, 0, 0.5);
+  margin: 2rem auto;
+  overflow: hidden;
+  width: 55rem;
+}
+
+label {
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.c-header {
+  background: url("images/header.png") center right no-repeat;
+  background-size: cover;
+  height: 18.6rem;
+  padding: 2.3rem 3.6rem;
+  width: 100%;
+}
+
+.c-header__title {
+  color: var(--white);
+  font-size: 2.3rem;
   font-weight: 300;
 }
 
-.header .title span {
+.c-header__title span {
+  font-size: 2.4rem;
   font-weight: bold;
-  font-size: 24px;
   line-height: 1.46;
 }
 
+.c-checkbox__wrapper {
+  display: flex;
+  gap: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.c-checkbox__item {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--blue);
+  border-radius: 0.4rem;
+  border: 0.15em solid var(--blue);
+  color: currentColor;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  height: 2.4rem;
+  place-content: center;
+  transform: translateY(-0.075em);
+  transition: background-color 0.3s;
+  width: 2.4rem;
+}
+
+.c-checkbox__item:hover {
+  background-color: var(--dark-blue);
+}
+
+.c-checkbox__item::before {
+  align-items: center;
+  background: var(--white);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  content: "";
+  display: flex;
+  height: 1.6rem;
+  justify-content: center;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  width: 1.6rem;
+}
+
+.c-checkbox__item:checked::before {
+  transform: scale(1);
+}
+
+.c-checkbox__item:checked:disabled {
+  background: var(--gray-disabled);
+  border-color: var(--gray-disabled);
+  cursor: not-allowed;
+}
+
+.c-checkbox__item:checked:invalid,
+.c-checkbox__item:checked[aria-invalid="true"] {
+  background: var(--error-background);
+  border-color: var(--error-background);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.c-checkbox__item:checked:invalid,
+.c-checkbox__item:checked[aria-invalid="true"] ~ label {
+  pointer-events: none;
+}
+
 .form textarea {
-  background: #dde3e9;
-  border: 1px solid #2f3676;
-  border-radius: 8px;
-  color: #071723;
-  height: 140px;
-  padding: 16px;
+  background: var(--light-blue);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--blue);
+  color: var(--black);
+  font-size: 1.4rem;
+  height: 14rem;
+  padding: 1.6rem;
   resize: none;
   width: 100%;
-  font-size: 14px;
 }
 
-.fieldset {
-  padding: 0 32px;
-}
-
-.counter svg {
-  fill: #2f3676;
+fieldset {
+  border: none;
+  padding: 0 3.2rem;
 }
 
 .counter input {
-  background: #dde3e9;
-  border: 1px solid #2f3676;
-  border-radius: 7px;
-  font-size: 20px;
+  background: var(--light-blue);
+  border-radius: 0.7rem;
+  border: 0.1rem solid var(--blue);
+  font-size: 2rem;
   font-weight: bold;
-  margin: 0 8px;
-  width: 60px;
+  margin: 0 0.8rem;
+  width: 6rem;
 }
 
-.footer {
-  padding: 32px;
-  background: #dde3e9;
+.c-footer {
+  background: var(--light-blue);
   display: flex;
   justify-content: flex-end;
+  padding: 3.2rem;
 }
 
-.footer button {
+.c-footer__submit-button {
   appearance: none;
-  background: #2f3676;
+  background: var(--blue);
+  border-radius: 0.8rem;
   border: 0;
-  border-radius: 8px;
-  color: #fff;
-  padding: 10px;
-  font-size: 18px;
-  text-transform: uppercase;
+  color: var(--white);
+  font-size: 1.8rem;
   font-weight: bold;
-  padding: 8px 32px;
+  padding: 0.8rem 3.2rem;
+  padding: 1rem;
+  text-transform: uppercase;
 }
 
-.footer button:focus,
-.footer button:hover {
-  border: 2px solid #2f3676;
-  background: #191847;
+.c-footer__submit-button:focus,
+.c-footer__submit-button:hover {
+  background: var(--dark-blue);
+  outline: 0.2rem solid var(--blue);
+}
+
+.c-footer__submit-button:disabled {
+  background: var(--gray-disabled);
+  color: var(--gray);
+  outline: 0.2rem solid var(--gray);
+}
+
+.formCheckbox {
+  align-items: center;
+  display: flex;
+}
+
+.success-message {
+  font-size: 1.8rem;
+  color: var(--success);
+  margin: 2rem auto;
+  text-align: center;
+  font-weight: 600;
 }
