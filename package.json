@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html -o index.html --public-url ./"
   },
   "author": "Vagas",
   "license": "ISC",
